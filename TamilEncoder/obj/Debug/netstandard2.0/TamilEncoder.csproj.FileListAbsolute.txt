@@ -1,0 +1,20 @@
+E:\mouizeroo\game design\TamilFontSupport\TamilEncoder\bin\Debug\netstandard2.0\TamilEncoder.deps.json
+E:\mouizeroo\game design\TamilFontSupport\TamilEncoder\bin\Debug\netstandard2.0\TamilEncoder.dll
+E:\mouizeroo\game design\TamilFontSupport\TamilEncoder\bin\Debug\netstandard2.0\TamilEncoder.pdb
+E:\mouizeroo\game design\TamilFontSupport\TamilEncoder\obj\Debug\netstandard2.0\TamilEncoder.csproj.AssemblyReference.cache
+E:\mouizeroo\game design\TamilFontSupport\TamilEncoder\obj\Debug\netstandard2.0\TamilEncoder.GeneratedMSBuildEditorConfig.editorconfig
+E:\mouizeroo\game design\TamilFontSupport\TamilEncoder\obj\Debug\netstandard2.0\TamilEncoder.AssemblyInfoInputs.cache
+E:\mouizeroo\game design\TamilFontSupport\TamilEncoder\obj\Debug\netstandard2.0\TamilEncoder.AssemblyInfo.cs
+E:\mouizeroo\game design\TamilFontSupport\TamilEncoder\obj\Debug\netstandard2.0\TamilEncoder.csproj.CoreCompileInputs.cache
+E:\mouizeroo\game design\TamilFontSupport\TamilEncoder\obj\Debug\netstandard2.0\TamilEncoder.dll
+E:\mouizeroo\game design\TamilFontSupport\TamilEncoder\obj\Debug\netstandard2.0\TamilEncoder.pdb
+P:\Unity\TamilFontSupport\TamilEncoder\bin\Debug\netstandard2.0\TamilEncoder.deps.json
+P:\Unity\TamilFontSupport\TamilEncoder\bin\Debug\netstandard2.0\TamilEncoder.dll
+P:\Unity\TamilFontSupport\TamilEncoder\bin\Debug\netstandard2.0\TamilEncoder.pdb
+P:\Unity\TamilFontSupport\TamilEncoder\obj\Debug\netstandard2.0\TamilEncoder.csproj.AssemblyReference.cache
+P:\Unity\TamilFontSupport\TamilEncoder\obj\Debug\netstandard2.0\TamilEncoder.GeneratedMSBuildEditorConfig.editorconfig
+P:\Unity\TamilFontSupport\TamilEncoder\obj\Debug\netstandard2.0\TamilEncoder.AssemblyInfoInputs.cache
+P:\Unity\TamilFontSupport\TamilEncoder\obj\Debug\netstandard2.0\TamilEncoder.AssemblyInfo.cs
+P:\Unity\TamilFontSupport\TamilEncoder\obj\Debug\netstandard2.0\TamilEncoder.csproj.CoreCompileInputs.cache
+P:\Unity\TamilFontSupport\TamilEncoder\obj\Debug\netstandard2.0\TamilEncoder.dll
+P:\Unity\TamilFontSupport\TamilEncoder\obj\Debug\netstandard2.0\TamilEncoder.pdb
