@@ -5,4 +5,9 @@ for more information check it out : https://www.azhagi.com/freefonts.php#tscii
 azhagi website also says in NOTE 2:(https://www.azhagi.com/freefonts.php)
 "I have taken as much care as possible to see that my download links in this page point only to those fonts which are 100% free. 
 In other words, as far as I can say, you may not find links to fonts which are not 100% free".
+
+---------------------------------------------------
+
+TAC Barathi font is provided by Government of Tamilnadu to use TACE16 as alternate standard.
+for more information: https://www.tamilvu.org/en/Tamil-Keyboard-interfaces-fonts
  
