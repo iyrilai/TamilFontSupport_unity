@@ -25,7 +25,7 @@ namespace Iyrilai.TamilFontFixer.Editor
 
         readonly GUIContent dynamicallyLoadAddTamilTextContent = new(
             "Dynamically Load Add Tamil Text Fixer",
-            "Auto add TamilTextFixer to TMP_Text and fix the font itself.\n\n⚠️ WARNING: This is an experimental feature!"
+            "Auto add TamilTextFixer to TMP_Text and fix the font by itself.\n\n⚠️ WARNING: This is an experimental feature!"
         );
 
         readonly GUIContent dynamicallyLoadOnEditorContent = new(
