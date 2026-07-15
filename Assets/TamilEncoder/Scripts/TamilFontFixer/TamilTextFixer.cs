@@ -45,6 +45,7 @@ namespace Iyrilai.TamilFontFixer
 
         void OnDestroy()
         {
+            tmp_text.textPreprocessor = null;
             TMP_Text.OnFontAssetRequest -= OnFontRequested;
         }
 

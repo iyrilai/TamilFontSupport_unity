@@ -20,11 +20,19 @@ namespace Iyrilai.TamilFontFixer
         public TMP_FontAsset FontAsset => fontAsset;
         public TamilFontEncoding DefaultEncoding => defaultEncoding;
 
+        public bool DynamicallyLoadAddTamilText => dynamicallyLoadAddTamilText;
+        public bool DynamicallyLoadOnEditor => dynamicallyLoadOnEditor;
+
         const string ResourcePath = "TamilFontFixerSettings";
         const string ResourcesFolder = "Assets/Resources";
         const string AssetPath = ResourcesFolder + "/TamilFontFixerSettings.asset";
 
         static TamilFontFixerSettings cachedInstance;
+
+        void OnValidate()
+        {
+            AutoTamilTextFixerAssigner.RestartInitialize();
+        }
 
         public static TamilFontFixerSettings Get()
         {
