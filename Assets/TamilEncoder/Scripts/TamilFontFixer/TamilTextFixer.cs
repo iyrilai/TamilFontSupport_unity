@@ -9,6 +9,7 @@ using UnityEngine;
 namespace Iyrilai.TamilFontFixer
 {
     [RequireComponent(typeof(TMP_Text))]
+    [AddComponentMenu("UI/Tamil Text Fixer")]
     [DisallowMultipleComponent]
     [ExecuteAlways]
     public class TamilTextFixer : MonoBehaviour, ITextPreprocessor
@@ -54,7 +55,7 @@ namespace Iyrilai.TamilFontFixer
             }
         }
 
-        public TMP_FontAsset FontAsset
+        public TMP_FontAsset OverrideFontAsset
         {
             get { return fontAsset; }
             set
@@ -64,7 +65,7 @@ namespace Iyrilai.TamilFontFixer
             }
         }
 
-        public TamilFontEncoding DefaultEncoding
+        public TamilFontEncoding OverrideDefaultEncoding
         {
             get { return defaultEncoding; }
             set
@@ -117,6 +118,8 @@ namespace Iyrilai.TamilFontFixer
         {
             tmp_text.textPreprocessor = null;
             TMP_Text.OnFontAssetRequest -= OnFontRequested;
+
+            tmp_text.ForceMeshUpdate();
         }
 
         #endregion
@@ -263,6 +266,9 @@ namespace Iyrilai.TamilFontFixer
                 return font;
             }
 
+            Debug.LogWarning($"[TamilTextFixer] Font requested '{fontName}' does not match the assigned font '{font.name}'. Deactivating TamilTextFixer on {gameObject.name} to prevent incorrect font rendering.");
+
+            Deactivated = true; // Fail safe
             return null;
         }
     }
