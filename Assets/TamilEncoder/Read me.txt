@@ -19,6 +19,7 @@ check it out Asset/TamilEncoder/Doc/Tamil font fixer and Tamil encoder.pdf (docu
 
 more about tscii & tscii table : https://en.wikipedia.org/wiki/TSCII
 For more tscii font : https://www.azhagi.com/freefonts.php#tscii
+For more TACE16 fonts : https://www.tamilvu.org/en/Tamil-Keyboard-interfaces-fonts
 
 
 If this asset help you drop your review here : https://u3d.as/2Ugj 
