@@ -266,9 +266,9 @@ namespace Iyrilai.TamilFontFixer
                 return font;
             }
 
-            Debug.LogWarning($"[TamilTextFixer] Font requested '{fontName}' does not match the assigned font '{font.name}'. Deactivating TamilTextFixer on {gameObject.name} to prevent incorrect font rendering.");
+            // Debug.LogWarning($"[TamilTextFixer] Font requested '{fontName}' does not match the assigned font '{font.name}'. Deactivating TamilTextFixer on {gameObject.name} to prevent incorrect font rendering.");
 
-            Deactivated = true; // Fail safe
+            // Deactivated = true; // Fail safe
             return null;
         }
     }
