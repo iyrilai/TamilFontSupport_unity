@@ -1,10 +1,13 @@
 using UnityEngine;
 using TMPro;
 using TamilEncoder;
+using System;
 
 namespace TamilUI
 {
     [RequireComponent(typeof(TextMeshProUGUI))]
+    [Obsolete("Use TamilTextFixer instead. This component is deprecated and will be removed in future versions.")]
+    [AddComponentMenu("")]
     public class TamilTextMeshPro : MonoBehaviour
     {
         [TextArea(3, 10)][SerializeField] protected string m_Text = string.Empty;
@@ -15,6 +18,7 @@ namespace TamilUI
 
         TextMeshProUGUI textMesh;
 
+        [Obsolete("Use TamilTextFixer instead. This component is deprecated and will be removed in future versions.")]
         public string Text
         {
             get { return m_Text; }
@@ -24,6 +28,7 @@ namespace TamilUI
                 UpdateText();
             }
         }
+
         public TamilFontEncoding Encoding
         {
             get { return m_Encoding; }

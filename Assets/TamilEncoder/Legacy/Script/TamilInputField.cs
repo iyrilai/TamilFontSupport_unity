@@ -2,14 +2,18 @@
 using UnityEngine.UI;
 using TamilEncoder;
 using TMPro;
+using System;
 
 namespace TamilUI
 {
+    [Obsolete("Use TamilTextFixer instead. This component is deprecated and will be removed in future versions.")]
+    [AddComponentMenu("")]
     public class TamilInputField : MonoBehaviour
     {
         [SerializeField] InputField inputField;
         [SerializeField] TMP_InputField inputFieldTMP;
         [SerializeField] TamilFontEncoding m_Encoding = TamilFontEncoding.TSCII;
+
         public TamilFontEncoding Encoding
         {
             get => m_Encoding;

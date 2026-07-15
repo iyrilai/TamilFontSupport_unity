@@ -59,8 +59,8 @@ namespace Iyrilai.TamilFontFixer
 #else
             if (cachedInstance == null)
             {
-                Debug.LogWarning($"[TamilFontFixerSettings] No settings asset found at 'Resources/{ResourceName}'. " +
-                                   "This should have been created in the editor before building.");
+                Debug.LogWarning($"[TamilFontFixerSettings] No settings asset found. " +
+                                   "This should have been created & assigned value in the editor before building.");
             }
 #endif
 

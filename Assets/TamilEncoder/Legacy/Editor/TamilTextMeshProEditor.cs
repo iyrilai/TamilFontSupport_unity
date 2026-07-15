@@ -2,9 +2,11 @@ using UnityEditor;
 using UnityEngine;
 using TMPro;
 using TamilUI;
+using System;
 
 namespace TamilUIEditor
 {
+    [Obsolete]
     [CustomEditor(typeof(TamilTextMeshPro), true)]
     public class TamilTextMeshProEditor : Editor
     {

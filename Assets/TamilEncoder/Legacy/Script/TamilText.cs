@@ -5,7 +5,7 @@ using TamilEncoder;
 namespace TamilUI
 {
     [RequireComponent(typeof(Text))]
-    [AddComponentMenu("UI/Legacy/Tamil/Tamil Text", 100)]
+    [AddComponentMenu("")]
     public class TamilText : MonoBehaviour
     {
         [TextArea(3, 10)][SerializeField] protected string m_Text = defaultText;
@@ -30,10 +30,11 @@ namespace TamilUI
                 UpdateText();
             }
         }
+
         public TamilFontEncoding Encoding
         {
             get { return m_Encoding; }
-            set 
+            set
             {
                 m_Encoding = value;
                 UpdateText();

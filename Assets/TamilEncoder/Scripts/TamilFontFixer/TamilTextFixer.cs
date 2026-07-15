@@ -17,8 +17,66 @@ namespace Iyrilai.TamilFontFixer
         [SerializeField] TMP_FontAsset fontAsset;
         [SerializeField] TamilFontEncoding defaultEncoding;
 
+        bool deactivated = false;
         TMP_Text tmp_text;
         TamilFontFixerSettings settings;
+
+        #region Public Properties
+
+        public bool Deactivated
+        {
+            get
+            {
+                return deactivated;
+            }
+            set
+            {
+                deactivated = value;
+
+                if (deactivated)
+                {
+                    Disable();
+                }
+                else
+                {
+                    Initialize();
+                }
+            }
+        }
+
+        public bool OverrideSetting
+        {
+            get { return overrideSetting; }
+            set
+            {
+                overrideSetting = value;
+                Initialize();
+            }
+        }
+
+        public TMP_FontAsset FontAsset
+        {
+            get { return fontAsset; }
+            set
+            {
+                fontAsset = value;
+                Initialize();
+            }
+        }
+
+        public TamilFontEncoding DefaultEncoding
+        {
+            get { return defaultEncoding; }
+            set
+            {
+                defaultEncoding = value;
+                Initialize();
+            }
+        }
+
+        #endregion
+
+        #region Unity Callbacks
 
         void Awake()
         {
@@ -30,8 +88,20 @@ namespace Iyrilai.TamilFontFixer
             Initialize();
         }
 
+        void OnDestroy()
+        {
+            Disable();
+        }
+
+        #endregion
+
+        #region Activate and Deactivate
+
         void Initialize()
         {
+            if (deactivated)
+                return;
+
             tmp_text = GetComponent<TMP_Text>();
             tmp_text.textPreprocessor = this;
 
@@ -43,11 +113,15 @@ namespace Iyrilai.TamilFontFixer
             tmp_text.ForceMeshUpdate();
         }
 
-        void OnDestroy()
+        void Disable()
         {
             tmp_text.textPreprocessor = null;
             TMP_Text.OnFontAssetRequest -= OnFontRequested;
         }
+
+        #endregion
+
+        #region Internal Getters
 
         TMP_FontAsset GetFontAsset()
         {
@@ -84,6 +158,8 @@ namespace Iyrilai.TamilFontFixer
                 return settings.DefaultEncoding;
             }
         }
+
+        #endregion
 
         string ITextPreprocessor.PreprocessText(string text)
         {

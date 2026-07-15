@@ -2,22 +2,23 @@ using UnityEngine;
 using UnityEngine.UI;
 using TamilEncoder;
 using TMPro;
+using System;
 
 namespace TamilUI
 {
+    [Obsolete("Use TamilTextFixer instead. This component is deprecated and will be removed in future versions.")]
+    [AddComponentMenu("")]
     public class TamilDropdown : MonoBehaviour
     {
-
         [SerializeField] TMP_Dropdown dropdownTMP;
         [SerializeField] Dropdown dropdown;
         [SerializeField] TamilFontEncoding m_Encoding = TamilFontEncoding.TSCII;
+        
         public TamilFontEncoding Encoding
         {
             get => m_Encoding;
             set => m_Encoding = value;
         }
-
-
 
         public void Start()
         {
@@ -52,7 +53,6 @@ namespace TamilUI
             var options = dropdown.options;
             foreach (var option in options)
                 option.text = TamilEncoding.ConvertFromUnicode(option.text, m_Encoding);
-				
         }
 
         void UpdateDropdownTMPOptions()
@@ -60,7 +60,6 @@ namespace TamilUI
             var options = dropdownTMP.options;
             foreach (var option in options)
                 option.text = TamilEncoding.ConvertFromUnicode(option.text, m_Encoding);
-				
         }
     }
 }

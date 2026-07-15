@@ -1,9 +1,11 @@
 using UnityEditor;
 using UnityEngine;
 using TamilUI;
+using System;
 
 namespace TamilUIEditor
 {
+    [Obsolete]
     [CustomEditor(typeof(TamilDropdown), true)]
     public class TamilDropdownEditor : Editor
     {
