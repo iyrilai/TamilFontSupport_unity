@@ -62,12 +62,8 @@ namespace Iyrilai.TamilFontFixer
         static void Cleanup()
         {
             TamilFontFixerSettings settings = TamilFontFixerSettings.Get();
-            if (settings == null)
-            {
-                return;
-            }
 
-            if (settings.DynamicallyLoadOnEditor)
+            if (settings != null && settings.DynamicallyLoadOnEditor)
             {
                 return;
             }

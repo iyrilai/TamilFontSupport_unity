@@ -116,9 +116,12 @@ namespace Iyrilai.TamilFontFixer
 
         void Disable()
         {
-            tmp_text.textPreprocessor = null;
             TMP_Text.OnFontAssetRequest -= OnFontRequested;
 
+            if (tmp_text == null)
+                return;
+
+            tmp_text.textPreprocessor = null;
             tmp_text.ForceMeshUpdate();
         }
 
@@ -266,9 +269,6 @@ namespace Iyrilai.TamilFontFixer
                 return font;
             }
 
-            // Debug.LogWarning($"[TamilTextFixer] Font requested '{fontName}' does not match the assigned font '{font.name}'. Deactivating TamilTextFixer on {gameObject.name} to prevent incorrect font rendering.");
-
-            // Deactivated = true; // Fail safe
             return null;
         }
     }
