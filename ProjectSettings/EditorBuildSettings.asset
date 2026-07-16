@@ -6,6 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/TamilEncoder/Example/Tamil_Text_Example.unity
+    path: Assets/Plugins/TamilFontFixer/Example/Tamil_Text_Example.unity
     guid: 0cf07f991ecdfc641a12693e2f6db620
   m_configObjects: {}
+  m_UseUCBPForAssetBundles: 0
