@@ -2,8 +2,6 @@ using UnityEngine;
 using TMPro;
 using System.Collections.Generic;
 
-
-
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -21,6 +19,14 @@ namespace Iyrilai.TamilFontFixer
         public static void RestartInitialize()
         {
             Initialize(true);
+
+            // Force update all TMP_Text components to trigger the TEXT_CHANGED_EVENT
+            TMP_Text[] allTextComponents = Object.FindObjectsByType<TMP_Text>(FindObjectsSortMode.None);
+
+            foreach (TMP_Text textComponent in allTextComponents)
+            {
+                textComponent.ForceMeshUpdate(true);
+            }
         }
 
 #if UNITY_EDITOR
