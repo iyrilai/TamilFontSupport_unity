@@ -11,7 +11,6 @@ namespace Iyrilai.TamilFontFixer
     [RequireComponent(typeof(TMP_Text))]
     [AddComponentMenu("UI/Tamil Text Fixer")]
     [DisallowMultipleComponent]
-    [ExecuteAlways]
     public class TamilTextFixer : MonoBehaviour, ITextPreprocessor
     {
         [SerializeField] bool overrideSetting;
