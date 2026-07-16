@@ -1714,7 +1714,6 @@ GameObject:
   - component: {fileID: 1013288969}
   - component: {fileID: 1013288972}
   - component: {fileID: 1013288971}
-  - component: {fileID: 1013288973}
   m_Layer: 5
   m_Name: TamilText (TMP)
   m_TagString: Untagged
@@ -1761,7 +1760,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u0BB5\u0BA3\u0B95\u0BCD\u0B95\u0BAE\u0BCD \u0B9F\u0BBE \u0BAE\u0BBE\u0BAA\u0BCD\u0BB3"
+  m_text: "\u0BB5\u0BA3\u0B95\u0BCD\u0B95\u0BAE\u0BCD \u0B9F\u0BBE \u0BAE\u0BBE\u0BAA\u0BCD"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1794,9 +1793,9 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 64
   m_HorizontalAlignment: 2
-  m_VerticalAlignment: 4096
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_characterHorizontalScale: 1
@@ -1841,21 +1840,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1013288968}
   m_CullTransparentMesh: 1
---- !u!114 &1013288973
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1013288968}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0636aa33a77ec784ba11075122c9b9f6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  overrideSetting: 0
-  fontAsset: {fileID: 11400000, guid: da6f40bea57120f459953f44f8278839, type: 2}
-  defaultEncoding: 0
 --- !u!1 &1132682144
 GameObject:
   m_ObjectHideFlags: 0
@@ -3742,7 +3726,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 442394687}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.81333333
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

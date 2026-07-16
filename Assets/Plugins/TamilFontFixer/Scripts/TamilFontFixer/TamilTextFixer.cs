@@ -85,6 +85,9 @@ namespace Iyrilai.TamilFontFixer
 
         void OnValidate()
         {
+            if (!gameObject.activeInHierarchy)
+                return;
+
             Initialize();
         }
 
