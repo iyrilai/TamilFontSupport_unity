@@ -8,6 +8,9 @@ namespace Iyrilai.TamilEncoder
 
         public static string Convert(string text, TamilFontEncoding currentFontEncoding, TamilFontEncoding newFontEncoding)
         {
+            if (string.IsNullOrEmpty(text))
+                return text;
+
             if (currentFontEncoding == newFontEncoding) return text;
 
             string[] currectChar = GetCharSet(currentFontEncoding);
