@@ -1,5 +1,7 @@
 using UnityEngine;
 using TMPro;
+using System.Collections.Generic;
+
 
 
 #if UNITY_EDITOR
@@ -49,6 +51,8 @@ namespace Iyrilai.TamilFontFixer
             Initialize();
         }
 
+        readonly static HashSet<TamilTextFixer> tamilTextFixers = new();
+
         static void Cleanup()
         {
             TamilFontFixerSettings settings = TamilFontFixerSettings.Get();
@@ -64,6 +68,22 @@ namespace Iyrilai.TamilFontFixer
 
             TMPro_EventManager.TEXT_CHANGED_EVENT.Remove(OnTextChanged);
             isInitialized = false;
+
+            EditorApplication.delayCall += CleanAssignedTamilTextFixers;
+        }
+
+        static void CleanAssignedTamilTextFixers()
+        {
+            foreach (var tamilTextFixer in tamilTextFixers)
+            {
+                if (tamilTextFixer != null)
+                {
+                    Object.DestroyImmediate(tamilTextFixer);
+                }
+            }
+
+            tamilTextFixers.Clear();
+            EditorApplication.delayCall -= CleanAssignedTamilTextFixers;
         }
 
         static void Initialize(bool isEditor = false)
@@ -108,6 +128,8 @@ namespace Iyrilai.TamilFontFixer
 
                 var tamilTextFixer = tmpText.gameObject.AddComponent<TamilTextFixer>();
                 tamilTextFixer.hideFlags = HideFlags.DontSave;
+
+                tamilTextFixers.Add(tamilTextFixer);
             }
         }
     }
