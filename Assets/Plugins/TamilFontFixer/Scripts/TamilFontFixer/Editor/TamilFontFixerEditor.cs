@@ -1,4 +1,5 @@
 using UnityEditor;
+using UnityEngine;
 
 namespace Iyrilai.TamilFontFixer.Editor
 {
@@ -19,6 +20,23 @@ namespace Iyrilai.TamilFontFixer.Editor
         public override void OnInspectorGUI()
         {
             serializedObject.Update();
+
+            var tamilTextFixer = target as TamilTextFixer;
+
+            if (tamilTextFixer != null && tamilTextFixer.hideFlags == HideFlags.HideAndDontSave && !EditorApplication.isPlaying)
+            {
+                GUI.enabled = true;
+
+                EditorGUILayout.HelpBox("This component is currently hidden.", MessageType.Info);
+
+                if (GUILayout.Button("Add Permanently"))
+                {
+                    tamilTextFixer.hideFlags = HideFlags.None;
+                    
+                    EditorUtility.SetDirty(tamilTextFixer);
+                    AutoTamilTextFixerAssigner.RemoveFromAutoAssignedList(tamilTextFixer);
+                }
+            }
 
             EditorGUILayout.PropertyField(overrideSettingProp);
 

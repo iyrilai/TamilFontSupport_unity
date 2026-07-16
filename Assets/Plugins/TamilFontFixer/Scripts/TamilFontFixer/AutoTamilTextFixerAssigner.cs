@@ -133,9 +133,17 @@ namespace Iyrilai.TamilFontFixer
                 }
 
                 var tamilTextFixer = tmpText.gameObject.AddComponent<TamilTextFixer>();
-                tamilTextFixer.hideFlags = HideFlags.DontSave;
+                tamilTextFixer.hideFlags = HideFlags.HideAndDontSave;
 
                 tamilTextFixers.Add(tamilTextFixer);
+            }
+        }
+
+        public static void RemoveFromAutoAssignedList(TamilTextFixer tamilTextFixer)
+        {
+            if (tamilTextFixers.Contains(tamilTextFixer))
+            {
+                tamilTextFixers.Remove(tamilTextFixer);
             }
         }
     }

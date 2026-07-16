@@ -425,7 +425,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "\u0BB5\u0BA3\u0B95\u0BCD\u0B95\u0BAE\u0BCD \u0B9F\u0BBE \u0BAE\u0BBE\u0BAA\u0BCD\u0BB3
-    unity\u0BB2 \u0B87\u0BB0\u0BC1\u0BA8\u0BCD\u0BA4\u0BC1"
+    unity\u0BB2 \u0B87\u0BB0\u0BC1\u0BA8g\u0BC1"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
