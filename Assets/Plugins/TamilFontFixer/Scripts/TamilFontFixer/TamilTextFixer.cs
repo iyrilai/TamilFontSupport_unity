@@ -11,6 +11,7 @@ namespace Iyrilai.TamilFontFixer
     [RequireComponent(typeof(TMP_Text))]
     [AddComponentMenu("UI/Tamil Text Fixer")]
     [DisallowMultipleComponent]
+    [ExecuteAlways]
     public class TamilTextFixer : MonoBehaviour, ITextPreprocessor
     {
         [SerializeField] bool overrideSetting;
@@ -22,6 +23,8 @@ namespace Iyrilai.TamilFontFixer
         TamilFontFixerSettings settings;
 
         #region Public Properties
+
+        public TMP_Text TextMesh => tmp_text;
 
         public bool Deactivated
         {
@@ -50,7 +53,7 @@ namespace Iyrilai.TamilFontFixer
             set
             {
                 overrideSetting = value;
-                Initialize();
+                ReloadTextMesh();
             }
         }
 
@@ -60,7 +63,7 @@ namespace Iyrilai.TamilFontFixer
             set
             {
                 fontAsset = value;
-                Initialize();
+                ReloadTextMesh();
             }
         }
 
@@ -70,7 +73,7 @@ namespace Iyrilai.TamilFontFixer
             set
             {
                 defaultEncoding = value;
-                Initialize();
+                ReloadTextMesh();
             }
         }
 
@@ -85,10 +88,10 @@ namespace Iyrilai.TamilFontFixer
 
         void OnValidate()
         {
-            if (!gameObject.activeInHierarchy)
+            if (!gameObject.activeInHierarchy || !enabled)
                 return;
 
-            Initialize();
+            Initialize(true);
         }
 
         void OnDestroy()
@@ -100,7 +103,7 @@ namespace Iyrilai.TamilFontFixer
 
         #region Activate and Deactivate
 
-        void Initialize()
+        void Initialize(bool isEditor = false)
         {
             if (deactivated)
                 return;
@@ -113,7 +116,7 @@ namespace Iyrilai.TamilFontFixer
             TMP_Text.OnFontAssetRequest -= OnFontRequested;
             TMP_Text.OnFontAssetRequest += OnFontRequested;
 
-            tmp_text.ForceMeshUpdate();
+            DelayMeshUpdate(isEditor);
         }
 
         void Disable()
@@ -124,7 +127,22 @@ namespace Iyrilai.TamilFontFixer
                 return;
 
             tmp_text.textPreprocessor = null;
-            tmp_text.ForceMeshUpdate();
+            ReloadTextMesh();
+        }
+
+        void DelayMeshUpdate(bool isEditor)
+        {
+            if (!isEditor)
+            {
+                ReloadTextMesh();
+                return;
+            }
+
+#if UNITY_EDITOR
+            UnityEditor.EditorApplication.delayCall += ReloadTextMesh;
+#else
+            ReloadTextMesh();
+#endif
         }
 
         #endregion
@@ -168,6 +186,14 @@ namespace Iyrilai.TamilFontFixer
         }
 
         #endregion
+
+        void ReloadTextMesh()
+        {
+            if (tmp_text == null) // fail safe
+                return;
+
+            tmp_text.ForceMeshUpdate();
+        }
 
         string ITextPreprocessor.PreprocessText(string text)
         {
@@ -233,6 +259,7 @@ namespace Iyrilai.TamilFontFixer
                     }
                 }
             }
+
             merged.Add(current);
 
             var result = new StringBuilder();
@@ -246,6 +273,7 @@ namespace Iyrilai.TamilFontFixer
                 result.Append("</font>");
                 lastPos = range.End;
             }
+
             result.Append(input, lastPos, input.Length - lastPos);
 
             return result.ToString();

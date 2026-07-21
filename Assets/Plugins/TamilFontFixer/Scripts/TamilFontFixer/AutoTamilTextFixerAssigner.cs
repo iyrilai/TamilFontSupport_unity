@@ -19,13 +19,26 @@ namespace Iyrilai.TamilFontFixer
         public static void RestartInitialize()
         {
             Initialize(true);
+            EditorApplication.delayCall += () =>
+            {
+                EditorApplication.delayCall += ReloadTMPs;
+            };
+        }
+
+        static void ReloadTMPs()
+        {
+            if (EditorApplication.isCompiling || EditorApplication.isUpdating)
+            {
+                EditorApplication.delayCall += ReloadTMPs;
+                return;
+            }
 
             // Force update all TMP_Text components to trigger the TEXT_CHANGED_EVENT
             TMP_Text[] allTextComponents = Object.FindObjectsByType<TMP_Text>(FindObjectsSortMode.None);
 
             foreach (TMP_Text textComponent in allTextComponents)
             {
-                textComponent.ForceMeshUpdate(true);
+                textComponent.ForceMeshUpdate();
             }
         }
 
@@ -80,6 +93,7 @@ namespace Iyrilai.TamilFontFixer
             {
                 if (tamilTextFixer != null)
                 {
+                    tamilTextFixer.Deactivated = true;
                     Object.DestroyImmediate(tamilTextFixer);
                 }
             }
@@ -123,8 +137,13 @@ namespace Iyrilai.TamilFontFixer
         {
             if (obj is TMP_Text tmpText)
             {
-                if (tmpText.TryGetComponent<TamilTextFixer>(out _))
+                if (tmpText.TryGetComponent<TamilTextFixer>(out var existingTamilTextFixer))
                 {
+                    if(existingTamilTextFixer.hideFlags == HideFlags.HideAndDontSave)
+                    {
+                        tamilTextFixers.Add(existingTamilTextFixer);
+                    }
+
                     return;
                 }
 
