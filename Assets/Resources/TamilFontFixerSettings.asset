@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cf46ef1f56508148833025b55b8544a, type: 3}
+  m_Name: TamilFontFixerSettings
+  m_EditorClassIdentifier: 
+  fontAsset: {fileID: 11400000, guid: 5666ce6676860364a84c0aeff917e202, type: 2}
+  defaultEncoding: 1
+  dynamicallyLoadAddTamilText: 1
+  dynamicallyLoadOnEditor: 1
