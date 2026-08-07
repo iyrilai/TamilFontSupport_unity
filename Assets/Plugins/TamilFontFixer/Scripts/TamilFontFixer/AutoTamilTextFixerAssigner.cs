@@ -35,6 +35,15 @@ namespace Iyrilai.TamilFontFixer
 
             foreach (TMP_Text textComponent in allTextComponents)
             {
+                if (textComponent == null)
+                    continue;
+
+                if (textComponent is TextMeshProUGUI UI)
+                {
+                    if (UI.canvasRenderer == null)
+                        continue;
+                }
+
                 textComponent.ForceMeshUpdate();
             }
         }
