@@ -192,6 +192,12 @@ namespace Iyrilai.TamilFontFixer
             if (tmp_text == null) // fail safe
                 return;
 
+            if (tmp_text is TextMeshProUGUI UI)
+            {
+                if (UI.canvasRenderer == null)
+                    return;
+            }
+
             tmp_text.ForceMeshUpdate();
         }
 
