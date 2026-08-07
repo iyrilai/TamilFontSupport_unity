@@ -6,3 +6,5 @@ For more integration details, see Docs/Tamil Font Fixer v1.0.0.pdf.
 Free Fonts
 TSCII Fonts: https://www.azhagi.com/freefonts.html
 TACE16 Fonts: https://www.tamilvu.org/tkbd/indexen.htm
+
+for more language fix, check out: https://github.com/LightSideKittens/UniText.git

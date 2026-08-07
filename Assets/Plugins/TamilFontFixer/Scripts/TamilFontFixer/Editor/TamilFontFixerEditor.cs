@@ -6,11 +6,13 @@ namespace Iyrilai.TamilFontFixer.Editor
     [CustomEditor(typeof(TamilTextFixer))]
     public class TamilTextFixerEditor : UnityEditor.Editor
     {
-        private SerializedProperty overrideSettingProp;
-        private SerializedProperty fontAssetProp;
-        private SerializedProperty defaultEncodingProp;
+        SerializedProperty overrideSettingProp;
+        SerializedProperty fontAssetProp;
+        SerializedProperty defaultEncodingProp;
 
-        private void OnEnable()
+        readonly GUIContent buttonContent = new("Add as component", "This will allow you to edit and save the Component.");
+
+        void OnEnable()
         {
             overrideSettingProp = serializedObject.FindProperty("overrideSetting");
             fontAssetProp = serializedObject.FindProperty("fontAsset");
@@ -29,11 +31,11 @@ namespace Iyrilai.TamilFontFixer.Editor
 
                 EditorGUILayout.HelpBox("This component is currently hidden.", MessageType.Info);
 
-                if (GUILayout.Button("Add Permanently"))
+                if (GUILayout.Button(buttonContent))
                 {
                     tamilTextFixer.hideFlags = HideFlags.None;
-                    
-                    EditorUtility.SetDirty(tamilTextFixer);
+
+                    EditorUtility.SetDirty(tamilTextFixer.gameObject);
                     AutoTamilTextFixerAssigner.RemoveFromAutoAssignedList(tamilTextFixer);
                 }
             }

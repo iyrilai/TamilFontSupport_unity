@@ -19,10 +19,7 @@ namespace Iyrilai.TamilFontFixer
         public static void RestartInitialize()
         {
             Initialize(true);
-            EditorApplication.delayCall += () =>
-            {
-                EditorApplication.delayCall += ReloadTMPs;
-            };
+            EditorApplication.delayCall += ReloadTMPs;
         }
 
         static void ReloadTMPs()
@@ -55,7 +52,7 @@ namespace Iyrilai.TamilFontFixer
             EditorApplication.playModeStateChanged += OnPlayModeChanged;
         }
 
-        private static void OnPlayModeChanged(PlayModeStateChange state)
+        static void OnPlayModeChanged(PlayModeStateChange state)
         {
             if (state == PlayModeStateChange.ExitingPlayMode)
             {
@@ -139,7 +136,7 @@ namespace Iyrilai.TamilFontFixer
             {
                 if (tmpText.TryGetComponent<TamilTextFixer>(out var existingTamilTextFixer))
                 {
-                    if(existingTamilTextFixer.hideFlags == HideFlags.HideAndDontSave)
+                    if (existingTamilTextFixer.hideFlags == HideFlags.HideAndDontSave)
                     {
                         tamilTextFixers.Add(existingTamilTextFixer);
                     }

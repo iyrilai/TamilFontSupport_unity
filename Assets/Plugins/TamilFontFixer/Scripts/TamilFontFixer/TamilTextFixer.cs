@@ -108,13 +108,13 @@ namespace Iyrilai.TamilFontFixer
             if (deactivated)
                 return;
 
-            tmp_text = GetComponent<TMP_Text>();
-            tmp_text.textPreprocessor = this;
-
             settings = TamilFontFixerSettings.Get();
 
-            TMP_Text.OnFontAssetRequest -= OnFontRequested;
-            TMP_Text.OnFontAssetRequest += OnFontRequested;
+            var font = GetFontAsset();
+            TamilFontManager.RegisterTamilFontAsset(font);
+
+            tmp_text = GetComponent<TMP_Text>();
+            tmp_text.textPreprocessor = this;
 
             DelayMeshUpdate(isEditor);
         }
@@ -212,7 +212,7 @@ namespace Iyrilai.TamilFontFixer
             return encodedText;
         }
 
-        public static string AddFontTags(string input, string[] keywords, TMP_FontAsset fontAsset)
+        static string AddFontTags(string input, string[] keywords, TMP_FontAsset fontAsset)
         {
             if (string.IsNullOrEmpty(input) || keywords == null || keywords.Length == 0)
                 return input;
@@ -288,6 +288,8 @@ namespace Iyrilai.TamilFontFixer
                 Debug.LogWarning("[TamilTextFixer] Font Asset is not assigned.");
                 return null;
             }
+
+            Debug.Log($"Font requested: {fontName} - {font.name}. {overrideSetting}");
 
             if (fontHashCode == font.hashCode)
             {
